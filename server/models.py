@@ -1,11 +1,8 @@
-from sqlalchemy.orm import validates
-from sqlalchemy.ext.hybrid import hybrid_property
 from marshmallow import Schema, fields
-
 from config import db
 
 class Book(db.Model):
-    __tablename__ = 'books'
+    __tablename__ = "books"
 
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String, nullable=False)
@@ -13,7 +10,7 @@ class Book(db.Model):
     description = db.Column(db.String)
 
     def __repr__(self):
-        return f'<Book {self.id}: {self.title}>'
+        return f"<Book {self.id}: {self.title}>"
 
 class BookSchema(Schema):
     id = fields.Int()
